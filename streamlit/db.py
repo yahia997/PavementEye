@@ -6,14 +6,17 @@ import geopandas as gpd
 import pandas as pd
 from deduct_value_func import get_deduct_value
 import numpy as np
-
+from cassandra.io.libevreactor import LibevConnection
 class Cassandra:
   def __init__(self, CASSANDRA_HOST='localhost', CASSANDRA_PORT=9042):
     try:
       print(f"Connecting to cassandra on host = {CASSANDRA_HOST}, port = {CASSANDRA_PORT} ...")
 
       # Connect to the cluster
-      self.cluster = Cluster([CASSANDRA_HOST], port=CASSANDRA_PORT)
+      self.cluster = Cluster(
+    [CASSANDRA_HOST],
+    port=CASSANDRA_PORT
+)
 
       # Create a session
       self.session = self.cluster.connect()
