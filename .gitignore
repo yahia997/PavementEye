@@ -7,3 +7,4 @@ __pycache__/
 *.pt
 .env
 SubmissionTemplate_HuaweiDeveloperCompetition.pptx
+**/.env
